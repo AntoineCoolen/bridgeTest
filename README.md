@@ -22,7 +22,7 @@ Comme les Patterns *Facade* et *FlyWeight*, on l’utilise lorsqu'un système es
 - Ajouter progressivement des fonctionnalités tout en séparant les grandes déviations à l’aide de classes abstraites.
 - Optimiser le système
 
-# Implementation
+# Implémentation
 
 **Contexte fonctionnel :** Un magasin de musique a besoin d’une application qui permette d'associer ses instruments a une catégorie de prix (petit prix, prix moyen, prix élevé).
 
@@ -35,7 +35,7 @@ Nous obtenons un diagramme de classe de ce type :
 
 L’implémentation est directement déclarée dans la classe abstraite. Le problème survient dans 2 cas : 
 
-- Si le commerçant, satisfait de cette application qui lui permet d’avoir une vision ordonnée de son stock, souhaite étendre l’application au reste du magasin (Livre, Accessoires et Disques). 
+- Si le commerçant, satisfait de cette application qui lui permet d’avoir une vision ordonnée de son stock, souhaite étendre l’application au reste du magasin (Livre, Accessoire et Disque). 
 	
 	-> Car nous serions obligé de refaire la même implémentation dans les 3 nouvelles classes abstraites.
 - Si le commerçant souhaite modifier son actuel méthode `instrument(OrdrePrix)`
@@ -101,13 +101,13 @@ Dans un premier package, `com.inti.design.pattern.structure.bridge.implementatio
 
 Dans un autre package, `com.inti.design.pattern.structure.bridge.abstraction` (qui nous permet de souligner l’indépendance de l’abstraction vis-à-vis de son implémentation), rapportez la classe **abstraite** Instrument et les classes qui l'étendent :
 
-	package tuto.bridge.abstraction;
+	package com.inti.design.pattern.structure.bridge.abstraction;
 
-	import tuto.bridge.implementation.OrdrePrix;
+	import com.inti.design.pattern.structure.bridge.implementation.OrdrePrix;
 
 	public abstract class Instrument {
 
-	protected OrdrePrix ordrePrix; // on utilise l'interface OrdrePrix
+	protected OrdrePrix ordrePrix;
 
 	public Instrument(OrdrePrix ordrePrix) {
 		super();
@@ -120,7 +120,7 @@ Dans un autre package, `com.inti.design.pattern.structure.bridge.abstraction` (q
 -------------------
 	package com.inti.design.pattern.structure.bridge.abstraction;
 
-	import tuto.bridge.implementation.OrdrePrix;
+	import com.inti.design.pattern.structure.bridge.implementation.OrdrePrix;
 
 	public class InstruCordes extends Instrument {
 
@@ -142,7 +142,7 @@ Dans un autre package, `com.inti.design.pattern.structure.bridge.abstraction` (q
 -------------------
 	package com.inti.design.pattern.structure.bridge.abstraction;
 
-	import tuto.bridge.implementation.OrdrePrix;
+	import com.inti.design.pattern.structure.bridge.implementation.OrdrePrix;
 
 	public class InstruPercu extends Instrument {
 
@@ -164,7 +164,7 @@ Dans un autre package, `com.inti.design.pattern.structure.bridge.abstraction` (q
 -------------------
 	package com.inti.design.pattern.structure.bridge.abstraction;
 
-	import tuto.bridge.implementation.OrdrePrix;
+	import com.inti.design.pattern.structure.bridge.implementation.OrdrePrix;
 
 	public class InstruVent extends Instrument {
 
@@ -187,15 +187,17 @@ Dans un autre package, `com.inti.design.pattern.structure.bridge.abstraction` (q
 
 Testez votre programme dans le package `com.inti.design.pattern.structure.bridge`
 
-	package tuto.bridge;
+	package com.inti.design.pattern.structure.bridge;
 
-	import tuto.bridge.abstraction.*;
-	import tuto.bridge.implementation.*;
+	import com.inti.design.pattern.structure.bridge.abstraction.*;
+	import com.inti.design.pattern.structure.bridge.implementation.*;
 
 	public class Application {
 
-	/* on utilise les classes Instrument et l'interface OrdrePrix
-	   pour assigner un ordre de prix à chaque instrument. */
+	/*
+	 * on utilise l'interface OrdrePrix pour assigner un ordre de prix à chaque
+	 * instrument.
+	 */
 
 	public static void main(String[] args) {
 		Instrument instr1 = new InstruVent(new PetitPrix(), "flûte à bec");
@@ -210,7 +212,6 @@ Testez votre programme dans le package `com.inti.design.pattern.structure.bridge
 	}
 
 	}
-
 
 ### Résultat
 
