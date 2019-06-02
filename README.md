@@ -38,7 +38,7 @@ L’implémentation est directement déclarée dans la classe abstraite. Le prob
 - Si le commerçant, satisfait de cette application qui lui permet d’avoir une vision ordonnée de son stock, souhaite étendre l’application au reste du magasin (Livre, Accessoire et Disque). 
 	
 	-> Car nous serions obligé de refaire la même implémentation dans les 3 nouvelles classes abstraites.
-- Si le commerçant souhaite modifier son actuel méthode `instrument(OrdrePrix)`
+- Si le commerçant nous demandait de modifier cette application.
 	
 	-> Car nous serions obligé de modifier la classe abstraite existante en redéfinissant la méthode, ce qui n’est pas une bonne pratique, ça pourrait faire planter une application qui jusque là était efficace.
  
